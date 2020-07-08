@@ -17,3 +17,14 @@ function get_score() {
 	request.open("GET", "http://localhost:8080/api/game/score", true);
 	request.send();
 }
+function load_game() {
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function() {
+		if (this.readyState ==4 && this.status ==200) {
+			console.log("Response: " +this.responseText);
+			var response = JSON.parse(this.responseText);
+		}
+	}
+	request.open("GET", "http://localhost:8080/api/game",true);
+	request.send();
+}
